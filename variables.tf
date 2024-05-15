@@ -18,6 +18,6 @@ variable "administrator_login_password" {
   type = string
 }
 
-variable "version_id" {
+variable "version-number" {
   type = string
 }
