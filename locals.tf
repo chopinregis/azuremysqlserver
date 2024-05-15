@@ -1,5 +1,5 @@
 locals{
-  myregissql_app=[for f in fileset("${path.module}/configs", "[^_]*.yaml") : yamldecode(file("${path.module}/configs/${f}"))]
+  myregissql_app=[for f in fileset("${path.module}/config", "[^_]*.yaml") : yamldecode(file("${path.module}/config/${f}"))]
   myregissql_app_list = flatten([
     for app in local.myregissql_app : [
       for msqlapps in try(app.listofmsqlapp, []) :{
