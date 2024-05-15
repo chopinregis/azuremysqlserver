@@ -2,3 +2,5 @@ listofmsqlapp:
   - name: first-example-mysqlserver    
   - name: second-example-mysqlserver    
   - name: third-example-mysqlserver    
+  - name: fourth-example-mysqlserver   
+  - name: fifth-example-mysqlserver   
