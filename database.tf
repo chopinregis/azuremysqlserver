@@ -8,7 +8,7 @@ resource "azurerm_mysql_server" "myregisdatabase" {
 
   sku_name   = "B_Gen5_2"
   storage_mb = 5120
-  version    = var.version_id
+  version    = var.version-number
 
   auto_grow_enabled                 = true
   backup_retention_days             = 7
