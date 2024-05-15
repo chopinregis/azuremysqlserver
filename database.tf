@@ -1,12 +1,7 @@
-resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
-  location = "West Europe"
-}
-
-resource "azurerm_mysql_server" "example" {
+resource "azurerm_mysql_server" "myregisdatabase" {
   name                = "example-mysqlserver"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.myrergisrg.location
+  resource_group_name = azurerm_resource_group.myrergisrg.name
 
   administrator_login          = "mysqladminun"
   administrator_login_password = "H@Sh1CoR3!"
