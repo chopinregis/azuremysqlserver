@@ -3,7 +3,7 @@ locals{
   myregissql_app_list = flatten([
     for app in local.myregissql_app : [
       for msqlapps in try(app.listofmsqlapp, []) :{
-        name = myregisdatabase.name
+        name = mysqlapps.name
         os_type = mysqlapps.os_type
         sku_name = mysqlapps.sku_name
 
