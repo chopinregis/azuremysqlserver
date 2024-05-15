@@ -15,6 +15,6 @@ variable "administrator_login" {
   type = string
 }
 variable "administrator_login_password" {
-  type = tring
+  type = string
 }
 
