@@ -1,20 +1,23 @@
-resource "azurerm_mysql_server" "mysqlapps" {
-  name                = "example-mysqlserver"
-  location            = azurerm_resource_group.myrergisrg.location
-  resource_group_name = azurerm_resource_group.myrergisrg.name
+resource "azurerm_mssql_server" "sqlservercreation" {
+  for_each = {for mssqlserver in local.myregissql_app_list : "${mssqlserver.name}" => mssqlserver}
+
+  name                         = each.value.name
+  resource_group_name          = azurerm_resource_group.myrergisrg.name
+  location                     = azurerm_resource_group.myrergisrg.location
+  version                      = var.version-number
 
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
 
-  sku_name   = "B_Gen5_2"
-  storage_mb = 5120
-  version    = var.version-number
+  minimum_tls_version          = "1.2"
 
-  auto_grow_enabled                 = true
-  backup_retention_days             = 7
-  geo_redundant_backup_enabled      = false
-  infrastructure_encryption_enabled = false
-  public_network_access_enabled     = true
-  ssl_enforcement_enabled           = true
-  ssl_minimal_tls_version_enforced  = "TLS1_2"
+  azuread_administrator {
+    login_username = "AzureAD Admin"
+    object_id      = "00000000-0000-0000-0000-000000000000"
+  }
+
+  tags = {
+    environment = "production"
+  }
 }
+
