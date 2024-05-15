@@ -1,4 +1,4 @@
-listoflinuxapp:
+listofmsqlapp:
   - name: firstlinuxapp    
     os_type: Linux
     sku_name: P1v2
