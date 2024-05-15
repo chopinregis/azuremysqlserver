@@ -22,8 +22,8 @@ resource "azurerm_mysql_server" "myregisdatabase" {
 
 resource "azurerm_mysql_server" "mysqlapps" {
   name                = "example-mysql-server"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.myrergisrg.location
+  resource_group_name = azurerm_resource_group.myrergisrg.name
 
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
