@@ -20,5 +20,5 @@ variable "administrator_login_password" {
 
 variable "version-number" {
   type = string
-  default = "5.7"
+  default = "12.0"
 }
